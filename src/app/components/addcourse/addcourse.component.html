@@ -1,0 +1,69 @@
+<div class="bootstrap-wrapper">
+    <div class="container mt">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                   
+                </div>
+                <h1 class="text-center">Add a Course</h1>
+
+                <!-- Creating form fields -->
+                <form ngNativeValidate  #addplayerform="ngForm" (ngSubmit)="addcourse()">
+                    <div *ngIf="id.errors && (id.invalid && id.touched)">
+                        <small class="text-danger" *ngIf="id.errors['required']" >Course Id  Is Required Field</small>
+                        <small class="text-danger" *ngIf="id.errors['pattern']">Course Id In Numericals Only </small>
+                      </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Course Id</mat-label>
+                        <input required type="number" name="Courseid" [(ngModel)]="addplayerlist.courseId" matInput required pattern="^[0-9]+$" #id="ngModel" 
+                        [class.is-invalid]="id.invalid && id.touched" />
+                    </mat-form-field>
+
+
+                    <div *ngIf="name.errors && (name.invalid && name.touched)">
+                        <small class="text-danger" *ngIf="name.errors['required']" >Name  Is Required Field</small>
+                        <small class="text-danger" *ngIf="name.errors['pattern']">Name In Alphabates Only </small>
+                      </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Course Name</mat-label>
+                        <input required type="text" name="Course Name" [(ngModel)]="addplayerlist.courseName" matInput required pattern="^[A-Za-z -]+$" #name="ngModel" 
+                        [class.is-invalid]="name.invalid && name.touched" />
+                    </mat-form-field>
+
+
+    
+
+                      <div *ngIf="duration.errors && (duration.invalid && duration.touched)">
+                        <small class="text-danger" *ngIf="duration.errors['required']" >Duration Is Required Field</small>
+                        <small class="text-danger" *ngIf="duration.errors['pattern']">Duration In Alphabates Only </small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Duration</mat-label>
+                        <input required type="text" name="Duration" [(ngModel)]="addplayerlist.duration" matInput required pattern="^[A-Za-z0-9 -]+$" #duration="ngModel" 
+                        [class.is-invalid]="duration.invalid && duration.touched" />
+                    </mat-form-field>
+
+                    <div *ngIf="fee.errors && (fee.invalid && fee.touched)">
+                        <small class="text-danger" *ngIf="fee.errors['required']" >Duration Is Required Field</small>
+                        <small class="text-danger" *ngIf="fee.errors['pattern']">Duration In Alphabates Only </small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Fee</mat-label>
+                        <input required type="text" name="fee" [(ngModel)]="addplayerlist.fee" matInput required pattern="^[0-9,/- -]+$" #fee="ngModel" 
+                        [class.is-invalid]="fee.invalid && fee.touched" />
+                    </mat-form-field>
+
+
+
+                    
+
+                    <div class="container text-center">
+                        <button [disabled]="addplayerform.invalid" type="submit" style="background-color: rgb(12, 134, 126);color: #fff;" mat-raised-button>Add Course</button>
+                        <button style="margin-left: 10px;" mat-raised-button color="primary" routerLink="/courselist">View Courses</button>
+                    </div>
+                </form>
+               
+            </div>
+        </div>
+    </div>
+</div>

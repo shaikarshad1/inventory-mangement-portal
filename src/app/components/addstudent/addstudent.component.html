@@ -1,0 +1,91 @@
+<div class="bootstrap-wrapper">
+    <div class="container mt">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                   
+                </div>
+                <h1 class="text-center">Add a Student</h1>
+
+                <form #addplayerform="ngForm" (ngSubmit)="addEvent()">
+                   
+        
+
+                    <div *ngIf="studentname.errors && (studentname.invalid && studentname.touched)">
+                        <small class="text-danger" *ngIf="studentname.errors['required']" >Student Name  Is Required</small>
+                        <small class="text-danger" *ngIf="studentname.errors['pattern']">Student Name In Alphabates Only </small>
+                      </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Student Name</mat-label>
+                        <input type="text" name="eventname" [(ngModel)]="addEventList.studentName" matInput required pattern="^[A-Za-z -]+$" #studentname="ngModel" 
+                        [class.is-invalid]="studentname.invalid && studentname.touched" />
+                    </mat-form-field>
+
+
+                    <div *ngIf="age.errors && (age.invalid && age.touched)">
+                        <small class="text-danger" *ngIf="age.errors['required']" >noOfSlots Is Required Field</small>
+                        <small class="text-danger" *ngIf="age.errors['pattern']">Numerical noOfSlots Required</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Age</mat-label>
+                        <input type="number" name="noOfSlots" [(ngModel)]="addEventList.age" matInput required pattern="^[0-9]+$" #age="ngModel" 
+                        [class.is-invalid]="age.invalid && age.touched" />
+                    </mat-form-field>
+
+
+                    <div *ngIf="studentemail.errors && (studentemail.invalid && studentemail.touched)">
+                        <small class="text-danger" *ngIf="studentemail.errors['required']" >Student Email  Is Required</small>
+                        <small class="text-danger" *ngIf="studentemail.errors['pattern']">Student Email In pattern Only </small>
+                      </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Student Email</mat-label>
+                        <input type="email" name="studentemail" [(ngModel)]="addEventList.studentEmail" matInput required pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" #studentemail="ngModel" 
+                        [class.is-invalid]="studentemail.invalid && studentemail.touched" />
+                    </mat-form-field>
+
+                    <div *ngIf="qualification.errors && (qualification.invalid && qualification.touched)">
+                        <small class="text-danger" *ngIf="qualification.errors['required']" >qualification  Is Required</small>
+                        <small class="text-danger" *ngIf="qualification.errors['pattern']">qualification In Alphabates Only </small>
+                      </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Qualification</mat-label>
+                        <input type="text" name="qualification" [(ngModel)]="addEventList.qualification" matInput required pattern="^[A-Za-z -.]+$" #qualification="ngModel" 
+                        [class.is-invalid]="qualification.invalid && qualification.touched" />
+                    </mat-form-field>
+
+                    <div *ngIf="phoneno.errors && (phoneno.invalid && phoneno.touched)">
+                        <small class="text-danger" *ngIf="phoneno.errors['required']" >phoneno Is Required Field</small>
+                        <small class="text-danger" *ngIf="phoneno.errors['pattern']">Numerical phoneno Required</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Phoneno</mat-label>
+                        <input type="number" name="noOfSlots" [(ngModel)]="addEventList.phoneNo" matInput required pattern="^[0-9]+$" #phoneno="ngModel" 
+                        [class.is-invalid]="phoneno.invalid && phoneno.touched" />
+                    </mat-form-field>
+
+
+                    <div *ngIf="course.errors && (course.invalid && course.touched)">
+                        <small class="text-danger" *ngIf="course.errors['required']" >course Is Required Field</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                      <mat-label>Select Course</mat-label>
+                      <mat-select  [(ngModel)]="addEventList.course" name="sportsName" [class.is-invalid]="course.invalid && course.touched" #course="ngModel">
+                        <mat-option>Select Course</mat-option>
+                        <mat-option *ngFor="let Event of courselist" [value]="Event.courseName">
+                            {{Event.courseName}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+
+
+                    <div class="container text-center">
+                        <button [disabled]="addplayerform.invalid" type="submit" style="background-color: rgb(12, 134, 126);color: #fff;"mat-raised-button color="primary">Add Student</button>
+                        <button style="margin-left: 10px;" mat-raised-button color="primary" routerLink="/student">View List</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
