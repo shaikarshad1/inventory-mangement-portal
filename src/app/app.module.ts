@@ -28,6 +28,7 @@ import { AddeventsComponent } from './components/addstudent/addstudent.component
 import { SearchEventsComponent } from './components/searchStudent/search-student.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { UpdateStudentComponent } from './components/update-student/update-student.component';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { UpdateStudentComponent } from './components/update-student/update-stude
     AddplayerComponent,
     SearchEventsComponent,
     AppComponent,
-    UpdateStudentComponent
+    UpdateStudentComponent,
+    FooterComponent
     
   ],
   imports: [
