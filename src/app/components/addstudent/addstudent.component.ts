@@ -12,10 +12,17 @@ import { PlayerserviceService } from 'src/services/courseservice.service';
 export class AddeventsComponent implements OnInit {
   addEventList = new Studentlistpojo();
   courselist:any;
+  routeee:any='/student';
+  toogglee:boolean=true;
   noDataFound='';
   constructor(private service:EventserviceService,private eventService:EventserviceService,  private _route: Router,private serv:PlayerserviceService) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('userName')!='admin'){
+      this.toogglee=false;
+      this.routeee='/dashboard';
+
+    }
     this.serv.playerlist().subscribe(
       (resp) =>{
         console.log(resp);
@@ -32,12 +39,20 @@ export class AddeventsComponent implements OnInit {
     );
   }
 
+  gettingRole(){
+    if(localStorage.getItem('userName')!='admin'){
+      this.toogglee=false;
+      this.routeee='/dashboard';
+
+    }
+  }
+
   addEvent(){
     this.service.addstudent(this.addEventList).subscribe
     (
       data=>{
         console.log("Event added succcessfully");
-        this._route.navigate(['/student']);
+        this._route.navigate([this.routeee]);
       },
       error=>{
         console.log("Event not added");

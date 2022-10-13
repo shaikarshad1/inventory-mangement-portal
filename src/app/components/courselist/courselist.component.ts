@@ -11,10 +11,18 @@ import Swal from 'sweetalert2';
 export class PlayerlistComponent implements OnInit {
 
   playerarray:any;
+  toggleButton:boolean=false;
   noDataDisplay='';
   constructor(private service:PlayerserviceService,private _route: Router) { }
 
   ngOnInit(): void {
+
+    const role=localStorage.getItem('userName');
+    if(role=='admin')
+    {
+      this.toggleButton=true;
+    }
+
     this.service.playerlist().subscribe(
       (resp) =>{
         console.log(resp);

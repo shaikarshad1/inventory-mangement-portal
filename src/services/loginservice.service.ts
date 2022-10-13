@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 import { environment } from './../environments/environment';
 
 @Injectable({
@@ -13,7 +14,8 @@ export class LoginserviceService {
   constructor(private http:HttpClient) { }
 
   generateToken(userid:string,password:string){
-    return this.http.post(this.auth_url,{userid,password},{responseType: 'json'});
+    
+    return this.http.post(this.auth_url+"/login",{userid,password},{responseType: 'json'});
   }
 
   //for login user

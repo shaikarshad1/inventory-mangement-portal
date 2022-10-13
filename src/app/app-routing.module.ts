@@ -10,10 +10,20 @@ import { LoginComponent } from './components/login/login.component';
 import { PlayerlistComponent } from './components/courselist/courselist.component';
 import { SearchEventsComponent } from './components/searchStudent/search-student.component';
 import { UpdateStudentComponent } from './components/update-student/update-student.component';
+import { RoleGuardGuard } from 'src/services/role-guard.guard';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent,pathMatch:'full'},
-  { path:'student/:id',component:UpdateStudentComponent,pathMatch:'full'},
+  {path:'',
+  component:HomeComponent,
+  pathMatch:'full'},
+
+  { path:'student/:id',
+  component:UpdateStudentComponent,
+  pathMatch:'full',
+  canActivate:[AuthGuard,RoleGuardGuard],
+  data:{
+    expectedRoles:'admin'
+  }},
   
 {
   path:'login',
@@ -37,7 +47,10 @@ const routes: Routes = [
   path:'student',
   component:EventlistComponent,
   pathMatch:'full',
-  canActivate:[AuthGuard]
+  canActivate:[AuthGuard,RoleGuardGuard],
+  data:{
+    expectedRoles:'admin'
+  }
 },
 {
   path:'addstudent',
@@ -49,13 +62,19 @@ const routes: Routes = [
   path:'searchstudent',
   component:SearchEventsComponent,
   pathMatch:'full',
-  canActivate:[AuthGuard]
+  canActivate:[AuthGuard,RoleGuardGuard],
+  data:{
+    expectedRoles:'admin'
+  }
 },
 {
   path:'addCourse',
   component:AddplayerComponent,
   pathMatch:'full',
-  canActivate:[AuthGuard]
+  canActivate:[AuthGuard,RoleGuardGuard],
+  data:{
+    expectedRoles:'admin'
+  }
 }
 
 ];

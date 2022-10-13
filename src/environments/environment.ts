@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  auth: "http://localhost:8084/api/auth/login",
+  auth: "http://localhost:8084/api/auth",
 
   sports: "http://localhost:8081",
   
