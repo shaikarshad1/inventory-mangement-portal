@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1 class="text-center mt">Inventories</h1>
+<div class="bootstrap-wrapper">
+    <div class="container mt">
+        <button  *ngIf="toggleButton" mat-raised-button color="primary" class="mb"  routerLink='/addInventory'>Add Inventory</button>
+        
+            &nbsp;
+            <button  mat-raised-button color="primary" class="mb"  routerLink='/searchstudent'>Search Inventory</button>
+            
+        <div class="row">
+<table id="customers">
+    
+    <thead>
+        <tr>
+            <th *ngIf="toggleButton">Id</th>
+            <th>Location Number</th>
+            <th>Material Name</th>
+            <th>Reset QTY</th>
+            <th >Available QTY</th>
+            <th *ngIf="toggleButton">Order Qty</th>
+            <th>Updated Date & Time</th>
+            <th *ngIf="toggleButton">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let inv of inventorylist">
+            <td *ngIf="toggleButton">{{inv.id}}</td>
+            <td>{{inv.locationNumber}}</td>
+            <td>{{inv.materialName}}</td>
+            <td>{{inv.resetQty}}</td>
+            <td>{{inv.availableQty}}</td>
+            <td *ngIf="toggleButton">{{inv.orderQty}}</td>
+            <td>{{inv.updateDateTime}}</td>
+            <td *ngIf="toggleButton">
+                &nbsp;
+                <button type="button" mat-raised-button color="warn" (click)="updateInv(inv.id)">Upadte</button>
+            
+            </td>
+            
+        </tr>  
+  </tbody>
+</table>
+<h3 class="text-center red">{{noDataDisplay}}</h3>
+
+</div>
+<button class="btn btn-primary text-center" routerLink='/dashboard'>Home</button> &nbsp;
+<button type="button" mat-raised-button color="primary" routerLink="/addOrder">Order</button>
+</div>
+</div>
+

@@ -3,12 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  auth: "http://localhost:8084/api/auth",
-
-  sports: "http://localhost:8081",
-  
-  player: "http://localhost:8082",
+  production: false
   
 };
 

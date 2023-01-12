@@ -1,6 +1,11 @@
+<!DOCTYPE html>
+<body>
 <div class="bootstrap-wrapper">
     <div class="container mt text-center">
-        <h1 class="text-center">Welcome to Course Registration Management System</h1>
-        <a *ngIf="!loggedIn" routerLink="/login" mat-raised-button color="primary">Login Here !!</a> 
+        <h1 class="text-center">Welcome to Inventory Management Portal</h1>
+        <h4 class="text-center">Click below button to login into portal</h4>
+        <button *ngIf="!loggedIn" routerLink="/login" mat-raised-button color="primary">Login</button> 
+        <h4 class="text-center">If you are new User, Register by clicking below Register button</h4>
+        <button *ngIf="!loggedIn" routerLink="/register" mat-raised-button class="btn btn-primary">Register</button>
     </div>
 </div>

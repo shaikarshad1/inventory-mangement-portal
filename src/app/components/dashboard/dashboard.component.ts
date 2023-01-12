@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginserviceService } from 'src/services/loginservice.service';
-import { PlayerserviceService } from 'src/services/courseservice.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +9,7 @@ import { PlayerserviceService } from 'src/services/courseservice.service';
 export class DashboardComponent implements OnInit {
   userNameDisplay:string | null | undefined;
 
-  constructor(private playerService:PlayerserviceService,private loginservice:LoginserviceService) { }
+  constructor(private loginservice:LoginserviceService) { }
 
   ngOnInit(): void {
     let token = this.loginservice.getToken();

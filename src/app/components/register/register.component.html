@@ -1,0 +1,80 @@
+<div class="bootstrap-wrapper">
+    <div class="container mt">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center">Registration</h1>
+                <form #adduserform="ngForm" (ngSubmit)="addUser()">
+
+                   <div *ngIf="userid.errors && (userid.invalid && userid.touched)">
+                        <small class="text-danger" *ngIf="userid.errors['pattern']">Name Must be in Aplphabets</small>
+                        <small class="text-danger" *ngIf="userid.errors['required']">Name is required</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>userid</mat-label>
+                        <input type="text" name="userid" [(ngModel)]="adduserlist.userid" #userid="ngModel" matInput required pattern="^[A-Za-z ]+$"
+                    [class.is-invalid]="userid.invalid && userid.touched"/></mat-form-field>
+                    <div *ngIf="name.errors && (name.invalid && name.touched)">
+                        <small class="text-danger" *ngIf="name.errors['pattern']">Name Must be in Aplphabets</small>
+                        <small class="text-danger" *ngIf="name.errors['required']">Name is required</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input type="text" name="name" [(ngModel)]="adduserlist.name" #name="ngModel" matInput required pattern="^[A-Za-z ]+$"
+                    [class.is-invalid]="name.invalid && name.touched"/></mat-form-field>
+
+                    <div *ngIf="email.errors &&(email.invalid && email.touched)">
+                        <small class="text-danger" *ngIf="email.errors['required']">Email is required</small>
+                        <small class="text-danger" *ngIf="email.errors['pattern']">Enter a valid email</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="email" name="email" [(ngModel)]="adduserlist.email" matInput required pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" #email="ngModel"
+                        [class.is-invalid]="email.invalid && email.touched"/>
+                    </mat-form-field>
+                    <div *ngIf="contactNo.errors && (contactNo.invalid && contactNo.touched)">
+                        <small class="text-danger" *ngIf="contactNo.errors['required']">Phone No is required</small>
+                        <small class="text-danger" *ngIf="contactNo.errors['pattern']">Phone No must be in Numbers</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Contact Number</mat-label>
+                        <input type="number" name="contactNo" [(ngModel)]="adduserlist.contactNo" matInput required length="10" pattern="^[0-9]{10}$" #contactNo="ngModel"
+                        [class.is-invalid]="contactNo.invalid && contactNo.touched"/>
+                    </mat-form-field>
+
+                    <div *ngIf="dOB.errors &&(dOB.invalid && dOB.touched)">
+                        <small class="text-danger" *ngIf="dOB.errors['required']">date of birth is required</small>
+                        <small class="text-danger" *ngIf="dOB.errors['pattern']">Enter a valid DOB</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Date Of Birth</mat-label>
+                        <input type="text" name="dOB" [(ngModel)]="adduserlist.dOB" matInput required pattern="^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-9]{2})?[0-9]{2}$" #dOB="ngModel"
+                        [class.is-invalid]="dOB.invalid && dOB.touched"/>
+                    </mat-form-field>
+
+                    <div *ngIf="password.errors &&(password.invalid && password.touched)">
+                        <small class="text-danger" *ngIf="password.errors['required']">password is required</small>
+                        <small class="text-danger" *ngIf="password.errors['length']">password size need atleast 4 Characters </small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" name="password" [(ngModel)]="adduserlist.password" matInput required minlength="4" #password="ngModel"
+                        [class.is-invalid]="password.invalid && password.touched"/>
+                    </mat-form-field>
+
+
+
+
+
+                    <div class="container text-center">
+                        <button [disabled]="adduserform.invalid" type="submit" style="background-color: rgb(12, 134, 126);color: #fff;"mat-raised-button color="primary">Register</button>
+                    </div>
+
+                </form>
+
+                <br>
+                <br>
+                <h3 class="text-center">Already having account?<a routerLink="/login">login</a></h3>
+            </div>
+        </div>
+    </div>
+</div>

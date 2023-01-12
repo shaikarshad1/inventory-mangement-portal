@@ -1,29 +1,83 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/services/auth.guard';
-import { AddeventsComponent } from './components/addstudent/addstudent.component';
-import { AddplayerComponent } from './components/addcourse/addcourse.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { EventlistComponent } from './components/studentlist/studentlist.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { PlayerlistComponent } from './components/courselist/courselist.component';
-import { SearchEventsComponent } from './components/searchStudent/search-student.component';
-import { UpdateStudentComponent } from './components/update-student/update-student.component';
 import { RoleGuardGuard } from 'src/services/role-guard.guard';
+import { AddorderComponent } from './components/addorder/addorder.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AddinventoryComponent } from './components/addinventory/addinventory.component';
+import { OrderlistComponent } from './components/orderlist/orderlist.component';
+import { InventorylistComponent } from './components/inventorylist/inventorylist.component';
+import { UpdateinventoryComponent } from './components/updateinventory/updateinventory.component';
+import { UpdateorderComponent } from './components/updateorder/updateorder.component';
 
 const routes: Routes = [
   {path:'',
   component:HomeComponent,
   pathMatch:'full'},
 
-  { path:'student/:id',
-  component:UpdateStudentComponent,
+  {
+    path:'register',
+    component:RegisterComponent,
+    pathMatch:'full'
+  },
+
+  {path:'addOrder',
+    component:AddorderComponent,
+  pathMatch:'full',
+canActivate:[AuthGuard]},
+
+{
+  path:'addInventory',
+  component:AddinventoryComponent,
   pathMatch:'full',
   canActivate:[AuthGuard,RoleGuardGuard],
   data:{
     expectedRoles:'admin'
-  }},
+  }
+},
+
+{
+  path:'orders',
+  component:OrderlistComponent,
+  pathMatch:'full',
+  canActivate:[AuthGuard]
+},
+
+{
+  path:'inventories',
+  pathMatch:'full',
+  component:InventorylistComponent,
+  canActivate:[AuthGuard]
+},
+
+{
+  path:'inventory/:id',
+  component:UpdateinventoryComponent,
+  pathMatch:'full',
+  canActivate:[AuthGuard,RoleGuardGuard],
+  data:{
+    expectedRoles:'admin'
+  }
+
+},
+{
+  path:'order/:id',
+  component:UpdateorderComponent,
+  pathMatch:'full',
+  canActivate:[AuthGuard,RoleGuardGuard],
+  data:{
+    expectedRoles:'admin'
+  }
+},
+
+
+
+
+
+  
   
 {
   path:'login',
@@ -35,46 +89,6 @@ const routes: Routes = [
   component:DashboardComponent,
   pathMatch:'full',
   canActivate:[AuthGuard]
-},
-{
-  path:'courselist',
-  component:PlayerlistComponent,
-  pathMatch:'full',
-  canActivate:[AuthGuard]
-},
-
-{
-  path:'student',
-  component:EventlistComponent,
-  pathMatch:'full',
-  canActivate:[AuthGuard,RoleGuardGuard],
-  data:{
-    expectedRoles:'admin'
-  }
-},
-{
-  path:'addstudent',
-  component:AddeventsComponent,
-  pathMatch:'full',
-  canActivate:[AuthGuard]
-},
-{
-  path:'searchstudent',
-  component:SearchEventsComponent,
-  pathMatch:'full',
-  canActivate:[AuthGuard,RoleGuardGuard],
-  data:{
-    expectedRoles:'admin'
-  }
-},
-{
-  path:'addCourse',
-  component:AddplayerComponent,
-  pathMatch:'full',
-  canActivate:[AuthGuard,RoleGuardGuard],
-  data:{
-    expectedRoles:'admin'
-  }
 }
 
 ];

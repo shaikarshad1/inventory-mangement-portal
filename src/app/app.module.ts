@@ -20,30 +20,31 @@ import { CommonModule,DatePipe } from '@angular/common';
 import { LoginserviceService } from 'src/services/loginservice.service';
 import { AuthGuard } from 'src/services/auth.guard';
 import { AuthInterceptor } from 'src/services/auth.interceptor';
-import { PlayerlistComponent } from './components/courselist/courselist.component';
 import {MatTableModule} from '@angular/material/table';
-import { AddplayerComponent } from './components/addcourse/addcourse.component';
-import { EventlistComponent } from './components/studentlist/studentlist.component';
-import { AddeventsComponent } from './components/addstudent/addstudent.component';
-import { SearchEventsComponent } from './components/searchStudent/search-student.component';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { UpdateStudentComponent } from './components/update-student/update-student.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AddinventoryComponent } from './components/addinventory/addinventory.component';
+import { AddorderComponent } from './components/addorder/addorder.component';
+import { RegisterComponent } from './components/register/register.component';
+import { InventorylistComponent } from './components/inventorylist/inventorylist.component';
+import { OrderlistComponent } from './components/orderlist/orderlist.component';
+import { UpdateinventoryComponent } from './components/updateinventory/updateinventory.component';
+import { UpdateorderComponent } from './components/updateorder/updateorder.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavBarComponent,
     DashboardComponent,
-    LoginComponent,
-    PlayerlistComponent,
-    EventlistComponent,
-    AddeventsComponent,
-    AddplayerComponent,
-    SearchEventsComponent,
-    AppComponent,
-    UpdateStudentComponent,
-    FooterComponent
+    LoginComponent,    
+    FooterComponent,
+    AddinventoryComponent,
+    AddorderComponent,
+    RegisterComponent,
+    InventorylistComponent,
+    OrderlistComponent,
+    UpdateinventoryComponent,
+    UpdateorderComponent
     
   ],
   imports: [

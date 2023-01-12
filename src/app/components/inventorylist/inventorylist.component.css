@@ -1,0 +1,43 @@
+.full-width{
+    width:100%;
+}
+.text-danger{
+     color: red;
+}
+.mt-zero{
+    margin-top: 0;
+}
+button:disabled {
+    background-color: rgb(42, 62, 59);
+ }
+
+  
+  
+   td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+tr:nth-child(even){background-color: #f2f2f2;}
+  
+  tr:hover {background-color: #ddd;}
+  
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #115e82;
+    color: white;
+  }
+.text-center{
+    text-align: center;
+}
+.mt{
+    margin-top: 20px;
+}
+.mb{
+    margin-bottom: 10px;
+}
+.red{
+  color: red;
+  text-transform: uppercase;
+}

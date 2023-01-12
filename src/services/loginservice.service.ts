@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { User } from 'src/app/model/user';
 import { environment } from './../environments/environment';
 
 @Injectable({
@@ -10,7 +11,7 @@ import { environment } from './../environments/environment';
 
 export class LoginserviceService {
 
-  auth_url=environment.auth;
+  auth_url="http://localhost:8084/api/auth";
   constructor(private http:HttpClient) { }
 
   generateToken(userid:string,password:string){
@@ -46,6 +47,10 @@ export class LoginserviceService {
   // to get the token
   getToken(){
     return localStorage.getItem("token");
+  }
+
+  register(regi:User){
+    return this.http.post<User>(this.auth_url+"/register",regi)
   }
 
 }

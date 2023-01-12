@@ -23,7 +23,7 @@ export class NavBarComponent implements OnInit {
     this.loggedIn = this.loginService.isLoggedIn();
     this.userNameDisplay = localStorage.getItem("userName");
     console.log('========s='+this.userNameDisplay);
-
+    
   }
 
   givingRole(){

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+<div class="bootstrap-wrapper">
+    <div class="container mt">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center">Upadte Inventory</h1>
+                <form #updateinvform="ngForm" (ngSubmit)="updateInventory()">
+                    <div *ngIf="locationNumber.errors && (locationNumber.invalid && locationNumber.touched)">
+                        <small class="text-danger" *ngIf="locationNumber.errors['pattern']">locationNumber Must be in numbers</small>
+                        <small class="text-danger" *ngIf="locationNumber.errors['required']">locationNumber is required</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>locationNumber</mat-label>
+                        <input type="number" name="locationNumber" [(ngModel)]="updateinvlist.locationNumber" #locationNumber="ngModel" matInput required pattern="^[0-9]+$"
+                    [class.is-invalid]="locationNumber.invalid && locationNumber.touched"/></mat-form-field>
+
+                    <div *ngIf="materialName.errors &&(materialName.invalid && materialName.touched)">
+                        <small class="text-danger" *ngIf="materialName.errors['required']">materialName is required</small>
+                        <small class="text-danger" *ngIf="materialName.errors['pattern']">materialName is in alphabets</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>materialName</mat-label>
+                        <input type="text" name="materialName" [(ngModel)]="updateinvlist.materialName" matInput required pattern="^[A-Za-z ]+$" #materialName="ngModel"
+                        [class.is-invalid]="materialName.invalid && materialName.touched"/>
+                    </mat-form-field>
+
+                    <div *ngIf="resetQty.errors && (resetQty.invalid && resetQty.touched)">
+                        <small class="text-danger" *ngIf="resetQty.errors['required']">resetQty is required</small>
+                        <small class="text-danger" *ngIf="resetQty.errors['pattern']">resetQty must be in Numbers</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>resetQty</mat-label>
+                        <input type="number" name="resetQty" [(ngModel)]="updateinvlist.resetQty" matInput required  pattern="^[0-9]+$" #resetQty="ngModel"
+                        [class.is-invalid]="resetQty.invalid && resetQty.touched"/>
+                    </mat-form-field>
+
+                    <div *ngIf="availableQty.errors && (availableQty.invalid && availableQty.touched)">
+                        <small class="text-danger" *ngIf="availableQty.errors['required']">availableQty is required</small>
+                        <small class="text-danger" *ngIf="availableQty.errors['pattern']">availableQty must be in Numbers</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>availableQty</mat-label>
+                        <input type="number" name="availableQty" [(ngModel)]="updateinvlist.availableQty" matInput required  pattern="^[0-9]+$" #availableQty="ngModel"
+                        [class.is-invalid]="availableQty.invalid && availableQty.touched"/>
+                    </mat-form-field>
+
+                    <div *ngIf="orderQty.errors && (orderQty.invalid && orderQty.touched)">
+                        <small class="text-danger" *ngIf="orderQty.errors['required']">orderQty is required</small>
+                        <small class="text-danger" *ngIf="orderQty.errors['pattern']">orderQty must be in Numbers</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>orderQty</mat-label>
+                        <input type="number" name="orderQty" [(ngModel)]="updateinvlist.orderQty" matInput required  pattern="^[0-9]+$" #orderQty="ngModel"
+                        [class.is-invalid]="orderQty.invalid && orderQty.touched"/>
+                    </mat-form-field>
+
+
+                    <div class="container text-center">
+                        <button [disabled]="updateinvform.invalid" type="submit" style="background-color: rgb(12, 134, 126);color: #fff;" mat-raised-button>Update Inventory</button>
+                        <button style="margin-left: 10px;" mat-raised-button color="primary" routerLink="/inventories">View Inventories</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
